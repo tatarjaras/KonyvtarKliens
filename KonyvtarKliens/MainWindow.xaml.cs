@@ -1,4 +1,6 @@
-﻿using System.Net.Http;
+﻿using KonyvtarApi.Models;
+using System.Net.Http;
+using System.Net.Http.Json;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,10 +19,12 @@ namespace KonyvtarKliens
     /// </summary>
     public partial class MainWindow : Window
     {
+
         private static HttpClient sharedClient = new() { BaseAddress = new("https://localhost:5001") };
         public MainWindow()
         {
             InitializeComponent();
+            FeltoltoKonyvtar();
         }
 
         private void btnuj_Click(object sender, RoutedEventArgs e)
@@ -38,6 +42,12 @@ namespace KonyvtarKliens
 
         }
 
-        private async void FeltoltoKonyvtar() { }
+        private async void FeltoltoKonyvtar()
+        {
+           konyvtarak = await sharedClient.GetFromJsonAsync<List<Konyvtarak>>("Konyvtar/GetAl");
+            Task.Delay(1000).Wait();
+                dtgkonyvtarak.ItemsSource = konyvek;
+            }
+        }
     }
 }

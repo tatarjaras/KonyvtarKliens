@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Http;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,6 +17,7 @@ namespace KonyvtarKliens
     /// </summary>
     public partial class MainWindow : Window
     {
+        private static HttpClient sharedClient = new() { BaseAddress = new("https://localhost:5001") };
         public MainWindow()
         {
             InitializeComponent();
@@ -35,5 +37,7 @@ namespace KonyvtarKliens
         {
 
         }
+
+        private async void FeltoltoKonyvtar() { }
     }
 }

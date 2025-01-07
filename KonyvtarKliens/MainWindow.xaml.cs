@@ -1,4 +1,6 @@
 ﻿using KonyvtarApi.Models;
+using KonyvtarKliens.DTOs;
+using KonyvtarKliens.Services;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Text;
@@ -21,6 +23,7 @@ namespace KonyvtarKliens
     {
 
         private static HttpClient sharedClient = new() { BaseAddress = new("https://localhost:5001") };
+        private static List<KonyvtarakDTO>konyvtarak=new List<KonyvtarakDTO>();
         public MainWindow()
         {
             InitializeComponent();
@@ -44,9 +47,9 @@ namespace KonyvtarKliens
 
         private async void FeltoltoKonyvtar()
         {
-           konyvtarak = await sharedClient.GetFromJsonAsync<List<Konyvtarak>>("Konyvtar/GetAl");
+           konyvtarak=await Konyvtarservices.GetAll(sharedClient);
             Task.Delay(1000).Wait();
-                dtgkonyvtarak.ItemsSource = konyvek;
+            dgrkonyvtarak.ItemsSource = konyvtarak;
             
         }
     }

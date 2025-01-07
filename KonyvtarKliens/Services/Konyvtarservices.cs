@@ -13,7 +13,7 @@ namespace KonyvtarKliens.Services
     {
         public static async Task<List<KonyvtarakDTO>> GetAll(HttpClient httpClient)
         {
-            return await httpClient.GetFromJsonAsync<List<KonyvtarakDTO>>("Konyvtarak/GetAll");
+            return await httpClient.GetFromJsonAsync<List<KonyvtarakDTO>>("Konyvtar/GetAll");
         }
     }
 }

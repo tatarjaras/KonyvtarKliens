@@ -47,7 +47,7 @@ namespace KonyvtarKliens
            konyvtarak = await sharedClient.GetFromJsonAsync<List<Konyvtarak>>("Konyvtar/GetAl");
             Task.Delay(1000).Wait();
                 dtgkonyvtarak.ItemsSource = konyvek;
-            }
+            
         }
     }
 }

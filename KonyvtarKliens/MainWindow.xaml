@@ -26,9 +26,9 @@
             <Label Content="Irányítószám"/>
             <TextBox Name="tbxIrsz"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="új" Name="btnuj"/>
-                <Button Content="módosít" Name="btnmodosit"/>
-                <Button Content="töröl" Name="btntorol"/>
+                <Button Content="új" Name="btnuj" Click="btnuj_Click"/>
+                <Button Content="módosít" Name="btnmodosit" Click="btnmodosit_Click"/>
+                <Button Content="töröl" Name="btntorol" Click="btntorol_Click"/>
             </StackPanel>
         </StackPanel>
         <DataGrid x:Name="dtgkönyvtarak" Grid.Column="1"/>

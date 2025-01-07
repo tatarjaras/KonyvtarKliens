@@ -6,6 +6,12 @@
         xmlns:local="clr-namespace:KonyvtarKliens"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -17,7 +23,13 @@
             <TextBox x:Name="tbxId" IsReadOnly="True"/>
             <Label Content="Könyvtár név"/>
             <TextBox x:Name="tbxKonyvtrarNev"/>
-
+            <Label Content="Irányítószám"/>
+            <TextBox Name="tbxIrsz"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="új" Name="btnuj"/>
+                <Button Content="módosít" Name="btnmodosit"/>
+                <Button Content="töröl" Name="btntorol"/>
+            </StackPanel>
         </StackPanel>
         <DataGrid x:Name="dtgkönyvtarak" Grid.Column="1"/>
     </Grid>

@@ -22,7 +22,7 @@ namespace KonyvtarKliens
     public partial class MainWindow : Window
     {
 
-        private static HttpClient sharedClient = new() { BaseAddress = new("https://localhost:5000") };
+        private static HttpClient sharedClient = new() { BaseAddress = new("http://localhost:5000") };
         private static List<KonyvtarakDTO>konyvtarak=new List<KonyvtarakDTO>();
         public MainWindow()
         {
